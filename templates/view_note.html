@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Notes</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <h1>View Notes</h1>
+
+    <h2>Named Notes</h2>
+    <ul>
+      {% for note in named_notes %}
+      <li><a href="/view_note/named/{{ note }}">{{ note }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <h2>Daily Notes</h2>
+    <ul>
+      {% for note in daily_notes %}
+      <li><a href="/view_note/daily/{{ note }}">{{ note }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <a href="/"><button>Back to Writing</button></a>
+
+    {% if content %}
+    <div id="note-content">
+      <h3>Note Content:</h3>
+      <div id="preview"></div>
+    </div>
+
+    <script>
+      const content = `{{ content|tojson }}`;
+      document.getElementById("preview").innerHTML = marked.parse(content);
+    </script>
+    {% endif %}
+  </body>
+</html>

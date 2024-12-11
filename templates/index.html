@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Note Editor</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div id="save-options">
+        <input type="text" id="filename" placeholder="Enter note filename" />
+        <select id="note-type">
+          <option value="named">Named Note</option>
+          <option value="daily">Daily Note</option>
+        </select>
+        <button id="save-button">Save Note</button>
+        <a href="/view"><button id="view-notes-button">View Notes</button></a>
+      </div>
+
+      <div id="editor-container">
+        <textarea id="editor" placeholder="Write your note here..."></textarea>
+        <div id="preview-container">
+          <div id="preview"></div>
+        </div>
+      </div>
+    </div>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
